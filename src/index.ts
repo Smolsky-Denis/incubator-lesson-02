@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 //
 app.use(BLOGS_PATH, blogsRouter)
-// app.use(POSTS_PATH, postsRouter)
-// app.use(TESTING_PATH, testingRouter)
+app.use(POSTS_PATH, postsRouter)
+app.use(TESTING_PATH, testingRouter)
 
 // порт приложения
 const PORT = process.env.PORT || 5001;
