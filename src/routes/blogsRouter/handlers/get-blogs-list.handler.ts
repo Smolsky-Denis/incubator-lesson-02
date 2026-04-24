@@ -3,6 +3,6 @@ import {blogsRepository} from "../../../entity/blogs/repositories/blogs.reposito
 import {HttpStatus} from "../../../core/types/http-statuses";
 
 export const getBlogsListHandler =  ( req: Request, res: Response ) => {
-    const blogList = blogsRepository.getBlogList()
+    const blogList = blogsRepository.getBlogList();
     res.status(HttpStatus.Ok).send(blogList)
 }
