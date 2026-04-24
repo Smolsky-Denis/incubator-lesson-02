@@ -27,7 +27,6 @@ export const blogsRepository: BlogRepository = {
         return blog;
     },
     deleteBlog(id: string): boolean {
-       // const blog = db.blogs.find((blog) => blog.id === id)
         const index = db.blogs.findIndex(blog => blog.id === id)
         if (index === -1) {
             return false
