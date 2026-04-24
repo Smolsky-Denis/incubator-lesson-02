@@ -27,8 +27,13 @@ export const blogsRepository: BlogRepository = {
         return blog;
     },
     deleteBlog(id: string): boolean {
-       const blog = db.blogs.find((blog) => blog.id === id)
+       // const blog = db.blogs.find((blog) => blog.id === id)
+        const index = db.blogs.findIndex(blog => blog.id === id)
+        if (index === -1) {
+            return false
+        }
 
-       return  !!db.blogs.splice(db.blogs.indexOf(blog as BlogDTO), 1)
+       db.blogs.splice(index, 1)
+        return true
     }
 }
