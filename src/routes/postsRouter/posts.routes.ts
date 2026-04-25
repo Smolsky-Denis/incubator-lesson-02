@@ -38,6 +38,7 @@ postsRouter
     )
     .delete(
         '/:id',
+        superAdminGuardMiddleware,
         idValidation,
         inputValidationMiddleware,
         deletePostByIdHandler,

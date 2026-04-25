@@ -28,11 +28,8 @@ export const blogsRepository: BlogRepository = {
     },
     deleteBlog(id: string): boolean {
         const index = db.blogs.findIndex(blog => blog.id === id)
-        if (index === -1) {
-            return false
-        }
-
-       db.blogs.splice(index, 1)
+        if (index === -1) return false
+        db.blogs.splice(index, 1)
         return true
     }
 }

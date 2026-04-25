@@ -33,10 +33,8 @@ export const postsRepository = {
 
     deletePost(id: string): boolean {
         const index = db.posts.findIndex(post => post.id === id)
-
         if (index === -1) return false;
         db.posts.splice(index, 1);
-
         return true;
     }
 }
