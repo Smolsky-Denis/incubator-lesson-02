@@ -4,10 +4,10 @@ import {postsRepository} from "../../../entity/posts/repositories/posts.reposito
 
 export const deletePostByIdHandler = (req: Request, res: Response) => {
     const id: string = req.params.id as string
-
-    if(postsRepository.deletePost(id)){
-        return res.status(HttpStatus.NoContent).json({})
+    const isDeleted = postsRepository.deletePost(id);
+    if(!isDeleted){
+        return res.sendStatus(HttpStatus.NotFound);
     }
 
-    return res.status(HttpStatus.NotFound).json({})
+    return res.sendStatus(HttpStatus.NoContent);
 }
