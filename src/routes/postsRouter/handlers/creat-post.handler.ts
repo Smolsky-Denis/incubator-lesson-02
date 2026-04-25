@@ -14,7 +14,7 @@ export const createPostHandler =  (
     const blog =  db.blogs.find((blog: BlogDTO) => blog.id === blogId) as BlogDTO;
 
     const newPost: FullPostDTO = {
-        id: (db.blogs.length ? Number(db.blogs[db.blogs.length - 1].id) + 1 : 0).toString(),
+        id: (db.blogs.length ? Number(db.blogs[db.blogs.length - 1].id) + 1 : 1).toString(),
         title: req.body.title,
         shortDescription: req.body.shortDescription,
         content: req.body.content,

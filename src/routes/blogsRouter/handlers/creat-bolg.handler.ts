@@ -10,7 +10,7 @@ export const createBlogHandler =  (
     res: Response
 ) => {
     const newBlog: BlogDTO = {
-        id: (db.blogs.length ? Number(db.blogs[db.blogs.length - 1].id) + 1 : 0).toString(),
+        id: (db.blogs.length ? Number(db.blogs[db.blogs.length - 1].id) + 1 : 1).toString(),
         name: req.body.name,
         description: req.body.description,
         websiteUrl: req.body.websiteUrl,
