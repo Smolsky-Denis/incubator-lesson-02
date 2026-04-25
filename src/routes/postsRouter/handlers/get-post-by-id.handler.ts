@@ -6,6 +6,8 @@ export const getPostByIdHandler =  (req: Request, res: Response) => {
     const id: string = req.params.id as string;
 
     const post = postsRepository.getPostById(id)
-
+    if (!post) {
+        return res.status(HttpStatus.NotFound).send(post);
+    }
     return res.status(HttpStatus.Ok).send(post);
 }

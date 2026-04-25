@@ -12,8 +12,13 @@ export const postsRepository = {
         return db.posts
     },
 
-    getPostById(id: string): PostDTO {
-        return db.posts.find((post) => post.id === id) as PostDTO;
+    getPostById(id: string): PostDTO | boolean{
+        const index = db.posts.findIndex(post => post.id === id)
+        if (index === -1) {
+            return false
+        }
+
+        return db.posts[index]
     },
 
     updatePost(id: string, body: PostDTO)  {
