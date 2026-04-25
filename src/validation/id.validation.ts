@@ -11,4 +11,3 @@ export const idValidation = param("id")
     .notEmpty().withMessage("id cannot be empty")
     .bail()
     .isInt({ min: 1 }).withMessage("id must be a positive integer")
-    .toInt();
