@@ -4,10 +4,10 @@ import {blogsRepository} from "../../../entity/blogs/repositories/blogs.reposito
 
 export const deleteBlogByIdHandler = (req: Request, res: Response) => {
     const id: string = req.params.id as string
-
-    if(blogsRepository.deleteBlog(id)){
-        return res.status(HttpStatus.NoContent).json({})
+    const isDeleted = blogsRepository.deleteBlog(id);
+    if (!isDeleted) {
+        return res.status(HttpStatus.NotFound)
     }
 
-    return res.status(HttpStatus.NotFound).json({})
+    return res.status(HttpStatus.NoContent)
 }
