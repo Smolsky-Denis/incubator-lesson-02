@@ -4,10 +4,10 @@ import {createPostHandler} from "./handlers/creat-post.handler";
 import {getPostByIdHandler} from "./handlers/get-post-by-id.handler";
 import {updateBlogHandler} from "./handlers/update-post-by-id.handler";
 import {deletePostByIdHandler} from "./handlers/delete-post-by-id.handler";
-import {postInputDtoValidation} from "../../entity/posts/validation/posts-dto.validation";
 import {inputValidationMiddleware} from "../../validation/input-validation.middleware";
 import {superAdminGuardMiddleware} from "../../auth/middlewares/super-admin.guard-middleware";
 import {idValidation} from "../../validation/id.validation";
+import {postInputValidation} from "../../entity/posts/validation/posts-dto.validation";
 
 export const postsRouter = Router({})
 
@@ -25,14 +25,14 @@ postsRouter
     .post(
         '',
         superAdminGuardMiddleware,
-        postInputDtoValidation,
+        postInputValidation,
         createPostHandler,
     )
     .put(
         '/:id',
         superAdminGuardMiddleware,
         idValidation,
-        postInputDtoValidation,
+        postInputValidation,
         inputValidationMiddleware,
         updateBlogHandler,
     )
