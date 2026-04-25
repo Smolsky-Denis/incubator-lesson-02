@@ -5,6 +5,7 @@ const titleValidation = body("title")
     .notEmpty().withMessage('title can not be empty')
     .isString().withMessage('title should be string')
     .trim()
+    .isLength({ min: 1, max: 30 })
 
 const shortDescriptionValidation = body("shortDescription")
     .exists().withMessage('shortDescription is required')
